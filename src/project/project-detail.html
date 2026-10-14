@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Project Detail | Team Sync</title>
+	<meta name="theme-color" content="#f5f6fa">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="/src/css/styles.css">
+	<script type="module" src="/src/js/project.mjs"></script>
+</head>
+
+<body>
+	<header class="site-header" id="site-header"></header>
+
+	<main class="project-main">
+		<section class="project-view" id="project-view" aria-labelledby="project-title">
+			<nav class="project-view__navigation" aria-label="Project navigation">
+				<button class="project-view__back" type="button" data-action="back-to-dashboard">
+					Back to projects
+				</button>
+			</nav>
+
+			<header class="project-view__header">
+				<div class="project-view__identity">
+					<p class="project-view__course" id="project-course"></p>
+					<h1 class="project-view__title" id="project-title"></h1>
+					<p class="project-view__summary" id="project-summary"></p>
+				</div>
+				<div class="project-view__header-actions">
+					<span class="project-view__status" id="project-status"></span>
+					<button class="project-view__share" type="button" data-action="share-project">
+						Share project
+					</button>
+				</div>
+			</header>
+
+			<section class="project-overview" aria-label="Project overview">
+				<div class="project-overview__deadline">
+					<span class="project-overview__label">Project deadline</span>
+					<strong id="project-deadline"></strong>
+				</div>
+
+				<div class="project-overview__progress">
+					<div class="project-overview__progress-heading">
+						<h2>Overall progress</h2>
+						<span id="project-progress-label"></span>
+					</div>
+					<progress id="project-progress-bar" max="100" value="0">0%</progress>
+				</div>
+			</section>
+
+			<section class="project-section" aria-labelledby="milestones-heading">
+				<header class="project-section__header">
+					<div>
+						<h2 id="milestones-heading">Milestones and tasks</h2>
+						<p>Track project work, owners, and due dates.</p>
+					</div>
+					<button type="button" data-action="add-milestone">Add milestone</button>
+				</header>
+				<div class="milestone-list" id="milestone-list"></div>
+			</section>
+
+			<section class="project-section" aria-labelledby="resources-heading">
+				<header class="project-section__header">
+					<div>
+						<h2 id="resources-heading">Project resources</h2>
+						<p>Shared links and working documents.</p>
+					</div>
+					<button type="button" data-action="add-resource">Add resource</button>
+				</header>
+				<ul class="resource-list" id="resource-list"></ul>
+			</section>
+
+			<section class="project-section" aria-labelledby="team-heading">
+				<header class="project-section__header">
+					<div>
+						<h2 id="team-heading">Project team</h2>
+						<p>Collaborators and their preferred working hours.</p>
+					</div>
+				</header>
+				<div class="project-team-list" id="project-team-list"></div>
+			</section>
+
+			<section class="project-section" aria-labelledby="contribution-heading">
+				<header class="project-section__header">
+					<div>
+						<h2 id="contribution-heading">Contribution summary</h2>
+						<p>Completed tasks assigned to each project member.</p>
+					</div>
+					<button type="button" data-action="export-report">Export report</button>
+				</header>
+				<div class="contribution-list" id="contribution-list"></div>
+			</section>
+		</section>
+
+	</main>
+	<div id="dialog-root"></div>
+
+	<footer class="site-footer" id="site-footer"></footer>
+</body>
+
+</html>

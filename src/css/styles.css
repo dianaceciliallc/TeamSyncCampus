@@ -139,7 +139,7 @@ body {
             font: 600 12px/1.4 var(--font-interface);
             cursor: pointer;
         }
-        
+
         select:focus {
             outline: none;
         }
@@ -744,6 +744,7 @@ body {
         font-size: 12px;
         line-height: 1.65;
         overflow-wrap: anywhere;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
     }
@@ -875,4 +876,984 @@ body {
             transform: none;
         }
     }
+}
+
+.project-view {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 28px 24px 48px;
+    color: var(--color-text);
+    font-family: var(--font-interface);
+
+    .project-view__navigation {
+        margin-bottom: 20px;
+    }
+
+    .project-view__back {
+        min-height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--color-control-border);
+        border-radius: 999px;
+        color: var(--color-text);
+        background: var(--color-surface);
+        font: 600 12px/1.4 var(--font-interface);
+        cursor: pointer;
+
+        &:hover {
+            background: var(--color-accent-soft);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 3px;
+        }
+    }
+
+    .project-view__header,
+    .project-view__header-actions,
+    .project-section__header,
+    .project-overview__progress-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .project-view__header {
+        align-items: flex-start;
+        padding: 24px;
+        border: 1px solid #DCE3ED;
+        border-radius: 16px;
+        background: var(--color-surface);
+        box-shadow: 0 8px 24px rgb(30 41 59 / 5%);
+    }
+
+    .project-view__identity {
+        min-width: 0;
+    }
+
+    .project-view__course {
+        margin: 0 0 6px;
+        color: var(--color-accent);
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .project-view__title {
+        margin: 0;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    .project-view__summary {
+        max-width: 720px;
+        margin: 8px 0 0;
+        color: var(--color-text-muted);
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .project-view__header-actions {
+        flex: 0 0 auto;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .project-view__status,
+    .milestone-card__status {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 4px 10px;
+        border-radius: 999px;
+        color: var(--color-progress-text);
+        background: var(--color-progress-bg);
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    .project-view__share,
+    .project-section__header button {
+        min-height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--color-text);
+        border-radius: 999px;
+        color: var(--color-surface);
+        background: var(--color-text);
+        font: 700 12px/1.4 var(--font-interface);
+        cursor: pointer;
+
+        &:hover {
+            border-color: #0F172A;
+            background: #0F172A;
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 3px;
+        }
+    }
+
+    .project-overview {
+        display: grid;
+        grid-template-columns: minmax(180px, 0.7fr) minmax(260px, 1.3fr);
+        gap: 16px;
+        margin: 16px 0 28px;
+    }
+
+    .project-overview__deadline,
+    .project-overview__progress {
+        min-width: 0;
+        padding: 18px;
+        border: 1px solid #DCE3ED;
+        border-radius: 14px;
+        background: var(--color-surface);
+    }
+
+    .project-overview__deadline {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+
+        strong {
+            font-size: 14px;
+        }
+    }
+
+    .project-overview__label {
+        color: var(--color-text-muted);
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .project-overview__progress-heading {
+        margin-bottom: 10px;
+
+        h2 {
+            margin: 0;
+            font-size: 13px;
+        }
+
+        span {
+            color: var(--color-accent);
+            font-size: 13px;
+            font-weight: 700;
+        }
+    }
+
+    .project-overview__progress progress {
+        display: block;
+        width: 100%;
+        height: 10px;
+        overflow: hidden;
+        border: 0;
+        border-radius: 999px;
+        background: #E2E8F0;
+        accent-color: var(--color-accent);
+
+        &::-webkit-progress-bar {
+            border-radius: 999px;
+            background: #E2E8F0;
+        }
+
+        &::-webkit-progress-value {
+            border-radius: 999px;
+            background: var(--color-accent);
+        }
+
+        &::-moz-progress-bar {
+            border-radius: 999px;
+            background: var(--color-accent);
+        }
+    }
+
+    .project-section {
+        margin-top: 28px;
+    }
+
+    .project-section__header {
+        margin-bottom: 14px;
+
+        h2 {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin: 4px 0 0;
+            color: var(--color-text-muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+    }
+
+    .milestone-list,
+    .resource-list,
+    .project-team-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .milestone-card {
+        min-width: 0;
+        padding: 18px;
+        border: 1px solid #DCE3ED;
+        border-radius: 14px;
+        background: var(--color-surface);
+    }
+
+    .milestone-card__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+
+        h3 {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        p {
+            margin: 4px 0 0;
+            color: var(--color-text-muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+    }
+
+    .milestone-card__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 20px;
+        margin: 12px 0;
+        color: var(--color-text-muted);
+        font-size: 11px;
+    }
+
+    .milestone-card__add-task {
+        min-height: 34px;
+        margin-bottom: 10px;
+        padding: 0 12px;
+        border: 1px solid var(--color-control-border);
+        border-radius: 999px;
+        color: var(--color-text);
+        background: var(--color-surface);
+        font: 600 11px/1.4 var(--font-interface);
+        cursor: pointer;
+
+        &:hover {
+            background: var(--color-accent-soft);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 3px;
+        }
+    }
+
+    .milestone-card__remove,
+    .project-task__remove,
+    .resource-list__item button {
+        min-height: 32px;
+        padding: 0 10px;
+        border: 1px solid var(--color-control-border);
+        border-radius: 999px;
+        color: var(--color-text-muted);
+        background: var(--color-surface);
+        font: 600 10px/1.4 var(--font-interface);
+        cursor: pointer;
+
+        &:hover {
+            border-color: var(--color-overdue-text);
+            color: var(--color-overdue-text);
+            background: var(--color-overdue-bg);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+    }
+
+    .project-task-list {
+        display: grid;
+        gap: 1px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid var(--color-divider);
+        border-radius: 10px;
+        list-style: none;
+    }
+
+    .project-task {
+        display: grid;
+        grid-template-columns: minmax(140px, 1.5fr) minmax(100px, 1fr) minmax(120px, 1fr) auto auto;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+        padding: 11px 12px;
+        background: #F8FAFC;
+        font-size: 11px;
+
+        &+& {
+            border-top: 1px solid var(--color-divider);
+        }
+    }
+
+    .project-task__title {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        color: var(--color-text);
+        font-weight: 600;
+        overflow-wrap: anywhere;
+
+        input {
+            width: 16px;
+            height: 16px;
+            flex: 0 0 16px;
+            margin: 0;
+            accent-color: var(--color-online);
+            cursor: pointer;
+
+            &:focus-visible {
+                outline: 3px solid var(--color-accent);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .project-task__assignee,
+    .project-task__date {
+        color: var(--color-text-muted);
+    }
+
+    .project-task__status {
+        color: var(--color-completed-text);
+        font-weight: 700;
+    }
+
+    .resource-list {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+
+        .resource-list__item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            min-width: 0;
+            padding: 14px 16px;
+            border: 1px solid #DCE3ED;
+            border-radius: 12px;
+            background: var(--color-surface);
+            font-size: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        a {
+            min-width: 0;
+            flex: 1 1 auto;
+            color: var(--color-accent);
+            font-weight: 600;
+            text-underline-offset: 3px;
+
+            &:hover {
+                color: #1E3A8A;
+            }
+
+            &:focus-visible {
+                outline: 3px solid var(--color-accent);
+                outline-offset: 3px;
+            }
+        }
+    }
+
+    .project-team-list {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    }
+
+    .project-team-member {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 56px;
+        padding: 10px 12px;
+        border: 1px solid #DCE3ED;
+        border-radius: 12px;
+        background: var(--color-surface);
+        font-size: 12px;
+        font-weight: 600;
+
+        .project-team-member__details {
+            display: grid;
+            min-width: 0;
+            flex: 1 1 auto;
+            gap: 2px;
+        }
+
+        .project-team-member__availability {
+            color: var(--color-text-muted);
+            font-size: 10px;
+            font-weight: 400;
+            overflow-wrap: anywhere;
+        }
+
+        button {
+            min-height: 32px;
+            padding: 0 10px;
+            border: 1px solid var(--color-control-border);
+            border-radius: 999px;
+            color: var(--color-text);
+            background: var(--color-surface);
+            font: 600 10px/1.4 var(--font-interface);
+            cursor: pointer;
+
+            &:focus-visible {
+                outline: 3px solid var(--color-accent);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .project-team-member__initials {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--color-avatar-text);
+        background: var(--color-avatar);
+        font-size: 10px;
+    }
+
+    .contribution-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+        gap: 10px;
+    }
+
+    .contribution-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-width: 0;
+        padding: 14px 16px;
+        border: 1px solid #DCE3ED;
+        border-radius: 12px;
+        background: var(--color-surface);
+        font-size: 11px;
+    }
+
+    .contribution-item__member {
+        color: var(--color-text);
+        font-weight: 700;
+    }
+
+    .contribution-item__count {
+        color: var(--color-text-muted);
+        text-align: right;
+    }
+
+    @media (max-width: 700px) {
+        padding: 22px 16px 36px;
+
+        .project-view__header {
+            flex-direction: column;
+            padding: 18px;
+        }
+
+        .project-view__title {
+            font-size: 21px;
+        }
+
+        .project-view__header-actions {
+            width: 100%;
+            align-items: flex-start;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .project-overview {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .project-task {
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 6px 12px;
+        }
+
+        .project-task__assignee,
+        .project-task__date {
+            grid-row: 2;
+        }
+
+        .project-task__status {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .project-task__remove {
+            grid-column: 2;
+            grid-row: 2;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .project-section__header {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .milestone-card {
+            padding: 14px;
+        }
+
+        .milestone-card__header {
+            flex-direction: column;
+        }
+    }
+}
+
+.app-dialog {
+    width: min(100% - 32px, 460px);
+    max-height: min(90vh, 720px);
+    padding: 0;
+    overflow: auto;
+    border: 1px solid var(--color-divider);
+    border-radius: 16px;
+    color: var(--color-text);
+    background: var(--color-surface);
+    box-shadow: 0 24px 64px rgb(15 23 42 / 25%);
+    font-family: var(--font-interface);
+
+    &::backdrop {
+        background: rgb(15 23 42 / 55%);
+    }
+
+    .app-dialog__form {
+        display: grid;
+        gap: 18px;
+        padding: 22px;
+    }
+
+    .app-dialog__header,
+    .app-dialog__actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .app-dialog__header h2 {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .app-dialog__close {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        flex: 0 0 36px;
+        place-items: center;
+        border: 1px solid var(--color-divider);
+        border-radius: 50%;
+        color: var(--color-text);
+        background: var(--color-surface);
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .app-dialog__field {
+        display: grid;
+        gap: 6px;
+        color: var(--color-text);
+        font-size: 12px;
+        font-weight: 600;
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            min-height: 42px;
+            padding: 9px 11px;
+            border: 1px solid var(--color-control-border);
+            border-radius: 8px;
+            color: var(--color-text);
+            background: var(--color-surface);
+            font: 400 13px/1.5 var(--font-interface);
+
+            &:focus-visible {
+                outline: 3px solid var(--color-accent);
+                outline-offset: 2px;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+
+    .app-dialog__actions {
+        justify-content: flex-end;
+        padding-top: 4px;
+    }
+
+    .app-dialog__cancel,
+    .app-dialog__submit {
+        min-height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--color-control-border);
+        border-radius: 999px;
+        color: var(--color-text);
+        background: var(--color-surface);
+        font: 700 12px/1.4 var(--font-interface);
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 3px;
+        }
+    }
+
+    .app-dialog__submit {
+        border-color: var(--color-text);
+        color: var(--color-surface);
+        background: var(--color-text);
+    }
+}
+
+.project-task-list.is-hidden,
+.project-task-list[hidden] {
+    display: none !important;
+}
+
+/* ==========================================
+   HEADER DE MILESTONE Y BOTÓN TOGGLE
+   ========================================== */
+.milestone-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    position: relative;
+}
+
+/* Agrupamos título/descripción a la izquierda para empujar los controles a la derecha */
+.milestone-card__header>div:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.milestone-card__header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.milestone-card__header p {
+    margin: 4px 0 0;
+    color: var(--color-text-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Alineación a la derecha del botón y la etiqueta de estado */
+.milestone-card__header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* --- Botón Toggle Estilizado y Elegante --- */
+.milestone-card__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid var(--color-divider);
+    border-radius: 8px;
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    outline: none;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        border-color: var(--color-control-border);
+        background: var(--color-accent-soft);
+        color: var(--color-accent);
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+}
+
+/* Icono de la flecha con rotación suave */
+.milestone-card__toggle .chevron-icon {
+    display: inline-block;
+    font-size: 10px;
+    line-height: 1;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Rotación cuando está colapsado */
+.milestone-card__toggle.is-collapsed .chevron-icon {
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease;
+}
+
+
+
+/* ==========================================
+   LISTA DE TAREAS Y FILAS ESTÁTICAS
+   ========================================== */
+.project-task-list {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-divider);
+    border-radius: 10px;
+    list-style: none;
+    max-height: 1000px;
+    opacity: 1;
+    transition: max-height 300ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 250ms ease,
+        margin 300ms ease,
+        border-color 250ms ease;
+}
+
+.project-task-list.is-hidden,
+.project-task-list[hidden] {
+    display: flex !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    margin-top: 0 !important;
+    border-color: transparent !important;
+    pointer-events: none;
+}
+
+.project-task {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--color-surface);
+    font-size: 12px;
+    box-sizing: border-box;
+    transition: background-color 150ms ease;
+
+    &:hover {
+        background: #F8FAFC;
+    }
+
+    &+& {
+        border-top: 1px solid var(--color-divider);
+    }
+}
+
+.project-task__checkbox {
+    order: 1;
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border: 1.5px solid var(--color-control-border);
+    border-radius: 4px;
+    background-color: var(--color-surface);
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: all 150ms ease;
+
+    &::before {
+        content: "";
+        width: 9px;
+        height: 5px;
+        border-left: 2px solid #FFFFFF;
+        border-bottom: 2px solid #FFFFFF;
+        transform: rotate(-45deg) scale(0) translate(1px, -1px);
+        transition: transform 120ms ease-in-out;
+    }
+
+    &:hover {
+        border-color: var(--color-accent);
+        background-color: var(--color-accent-soft);
+    }
+
+    &:checked {
+        border-color: var(--color-accent);
+        background-color: var(--color-accent);
+
+        &::before {
+            transform: rotate(-45deg) scale(1) translate(1px, -1px);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+}
+
+.project-task__title {
+    order: 2;
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--color-text);
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.project-task:has(.project-task__checkbox:checked) .project-task__title {
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+}
+
+.project-task__assignee {
+    order: 3;
+    flex: 0 0 120px;
+    width: 120px;
+    color: var(--color-text-muted);
+    font-size: 11.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.project-task__date {
+    order: 4;
+    flex: 0 0 110px;
+    width: 110px;
+    color: var(--color-text-muted);
+    font-size: 11.5px;
+    white-space: nowrap;
+}
+
+.project-task__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 150ms ease;
+
+    svg {
+        display: block;
+        transition: stroke 150ms ease, transform 150ms ease;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 1px;
+    }
+}
+
+.project-task__btn--edit {
+    &:hover {
+        color: var(--color-accent);
+        border-color: #CBD5E1;
+        background: var(--color-accent-soft);
+
+        svg {
+            transform: scale(1.08);
+        }
+    }
+}
+
+.project-task__btn--delete {
+    &:hover {
+        color: var(--color-overdue-text);
+        border-color: #FECACA;
+        background: var(--color-overdue-bg);
+
+        svg {
+            transform: scale(1.08);
+        }
+    }
+}
+
+/* ==========================================
+   FILA DE TAREA EN GRID (Alinear íconos al final)
+   ========================================== */
+.project-task {
+    display: grid !important;
+    /* Columna 1: Checkbox
+       Columna 2: Título
+       Columna 3: Asignado
+       Columna 4: Fecha
+       Columna 5: Estado
+       Columna 6: Íconos Editar / Borrar */
+    grid-template-columns: 20px minmax(180px, 1fr) 120px 110px 85px 56px !important;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--color-surface);
+    font-size: 12px;
+    box-sizing: border-box;
+
+    & + & {
+        border-top: 1px solid var(--color-divider);
+    }
+}
+
+.project-task__status {
+    order: 5;
+    flex: 0 0 85px;
+    width: 85px;
+    text-align: right;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-completed-text);
+    white-space: nowrap;
+}
+
+.project-task__actions {
+    order: 6;
+    flex: 0 0 56px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-left: 8px;
 }
