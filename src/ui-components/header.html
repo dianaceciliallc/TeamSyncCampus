@@ -1,6 +1,6 @@
 <div class="header-container">
     <div class="header-left">
-        <a href="index.html" class="brand-link" aria-label="TeamSync Home">
+        <a href="../index.html" class="brand-link" aria-label="TeamSync Home">
             <img src="/src/assets/team-sync-logo.png" alt="TeamSync Brand Logo" class="brand-logo">
             <span class="brand-info">
                 <span class="brand-name">TeamSync</span>
@@ -12,14 +12,14 @@
     <div class="header-center">
         <div class="course-selector">
             <label for="courses">Choose a course:</label>
-            <select class="courses-select" name="courses" id="courses">
+            <select class="courses-select" name="courses" id="courses" data-action="filter-course">
                 <option value="all" selected>All</option>
             </select>
         </div>
 
         <label class="search-bar">
             <span class="icon-search" aria-hidden="true"></span>
-            <input type="search" data-project-search placeholder="Search capstones, tasks, teammates or resources..."
+            <input type="search" data-action="search-projects" placeholder="Search capstones, tasks, teammates or resources..."
                 aria-label="Search projects, tasks, teammates or resources">
         </label>
     </div>
@@ -36,12 +36,14 @@
 
         <div class="profile-menu-wrapper">
             <button class="user-avatar-btn" type="button" aria-label="Open profile menu" aria-haspopup="true"
-                aria-expanded="false" data-profile-toggle>
-                <span class="avatar-initials">KM</span>
+                aria-expanded="false" data-action="toggle-profile-menu">
+                <span class="avatar-initials" data-user-initials></span>
                 <span class="online-status-dot" title="Online"></span>
             </button>
-            <div class="profile-menu" data-profile-menu>
-                <a href="auth-pages/login.html" data-sign-out>Sign out</a>
+            <div class="profile-menu">
+                <strong data-user-name></strong>
+                <span data-user-email></span>
+                <button type="button" data-action="sign-out">Sign out</button>
             </div>
         </div>
     </div>

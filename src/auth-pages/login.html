@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sign in | Team Sync</title>
+	<meta name="theme-color" content="#f5f6fa">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="../css/styles.css">
+	<script type="module" src="../js/authInit.js"></script>
+</head>
+
+<body class="auth-page">
+	<main class="auth-card">
+		<header class="auth-card__header">
+			<img src="../assets/team-sync-logo.png" alt="TeamSync logo" class="brand-logo">
+			<h1>Welcome back</h1>
+			<p>Sign in to manage your capstone projects.</p>
+		</header>
+
+		<form class="auth-form" data-action="login">
+			<p role="alert" hidden></p>
+
+			<label for="login-email">Email</label>
+			<input type="email" id="login-email" name="email" autocomplete="email" required
+				placeholder="you@university.edu">
+
+			<label for="login-password">Password</label>
+			<input type="password" id="login-password" name="password" autocomplete="current-password" required
+				placeholder="Your password">
+
+			<button type="submit">Sign in</button>
+		</form>
+
+		<p class="auth-card__footer">
+			New to TeamSync? <a href="register.html">Create an account</a>
+		</p>
+	</main>
+</body>
+
+</html>

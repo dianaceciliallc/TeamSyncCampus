@@ -10,8 +10,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
 		rel="stylesheet">
-	<link rel="stylesheet" href="/src/css/styles.css">
-	<script type="module" src="/src/js/project.mjs"></script>
+	<link rel="stylesheet" href="../css/styles.css">
+	<script type="module" src="../js/project.js"></script>
 </head>
 
 <body>
@@ -33,9 +33,12 @@
 				</div>
 				<div class="project-view__header-actions">
 					<span class="project-view__status" id="project-status"></span>
-					<button class="project-view__share" type="button" data-action="share-project">
-						Share project
-					</button>
+					<div class="project-view__header-buttons">
+						<button class="project-view__share" type="button" data-action="share-project">Share project</button>
+						<button type="button" data-action="join-project" hidden>Join project</button>
+						<button type="button" data-action="edit-project" hidden>Edit project</button>
+						<button type="button" data-action="delete-project" hidden>Delete project</button>
+					</div>
 				</div>
 			</header>
 
@@ -83,7 +86,7 @@
 						<p>Collaborators and their preferred working hours.</p>
 					</div>
 				</header>
-				<div class="project-team-list" id="project-team-list"></div>
+				<ul class="project-team-list" id="project-team-list"></ul>
 			</section>
 
 			<section class="project-section" aria-labelledby="contribution-heading">
@@ -99,7 +102,7 @@
 		</section>
 
 	</main>
-	<div id="dialog-root"></div>
+	<dialog id="dialog-root" class="app-dialog"></dialog>
 
 	<footer class="site-footer" id="site-footer"></footer>
 </body>
