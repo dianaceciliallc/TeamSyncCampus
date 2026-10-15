@@ -49,13 +49,19 @@ async function startProjectPage() {
         if (!project) {
             showNotFound();
             bindActions(actions);
+            document.body.classList.add("is-project-detail");
             return;
         }
 
+        document.body.classList.add("is-project-detail");
         renderProject(project, users, user.id);
 
         bindActions({
             ...actions,
+            "back-to-dashboard": () => {
+                document.body.classList.remove("is-project-detail");
+                goTo("dashboard");
+            },
             "share-project": () => shareProject(projectId),
             "join-project": joinThisProject,
             "edit-project": editThisProject,

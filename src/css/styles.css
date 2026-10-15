@@ -2118,20 +2118,17 @@ body {
 }
 
 
-.milestone-card.is-collapsed .task-list,
-.milestone-card.is-collapsed .milestone-body {
+.milestone-card.is-collapsed [data-action="toggle-tasks"] span {
+    transform: rotate(45deg);
+    transition: transform 0.02s ease;
+}
+
+.project-task-list.hide-tasks {
     display: none;
 }
 
-.milestone-card.is-collapsed button[data-action="toggle-tasks"] svg,
-.milestone-card.is-collapsed button[data-action="toggle-tasks"] i {
-    transform: rotate(-90deg);
-    transition: transform 0.2s ease;
-}
-
-.milestone-card.is-collapsed>*:not(.milestone-header),
-.milestone-card.is-collapsed .task-container,
-.milestone-card.is-collapsed ul,
-.milestone-card.is-collapsed div[class*="task"] {
-    display: none !important;
+body.is-project-detail .course-selector,
+body.is-project-detail .search-bar,
+body.is-project-detail .btn ,btn-primary-pill {
+    display: none;
 }

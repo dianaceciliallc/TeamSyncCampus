@@ -210,6 +210,14 @@ export function renderProject(project, users, userId, highlightId) {
     }
 }
 
-export function toggleMilestone(card) {
+export function toggleMilestone(eventElement) {
+    const card = eventElement.closest(".milestone-card");
+    if (!card) return;
+    
     card.classList.toggle("is-collapsed");
+    
+    const tasksList = card.querySelector(".project-task-list");
+    if (tasksList) {
+        tasksList.classList.toggle("hide-tasks");
+    }
 }
